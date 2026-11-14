@@ -1,0 +1,22 @@
+:host { display: block; }
+
+.botao-reserva { color: #fff; background: var(--verde); border-color: var(--verde); }
+.botao-reserva:hover { background: var(--verde-escuro); }
+
+.toast {
+  position: fixed;
+  z-index: 2;
+  right: 18px;
+  bottom: 18px;
+  max-width: calc(100% - 36px);
+}
+.toast.visivel {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 12px;
+  border-radius: 11px;
+  color: #fff;
+  background: var(--verde-escuro);
+  box-shadow: 0 5px 22px #132f2c38;
+}

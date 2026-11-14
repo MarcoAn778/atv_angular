@@ -1,0 +1,91 @@
+<header class="topo">
+  <div class="largura barra-topo">
+    <a class="marca" href="#inicio">
+      <span class="marca-livro" aria-hidden="true"></span>
+      Biblioteca
+    </a>
+    <nav class="navegacao" aria-label="Navegação principal">
+      <a href="#catalogo">Catálogo</a>
+      <a href="#informacoes">Informações</a>
+    </nav>
+  </div>
+</header>
+
+<main id="inicio" class="largura pagina">
+  <section class="destaque" aria-labelledby="titulo-principal">
+    <div class="destaque-texto">
+      <h1 id="titulo-principal">Biblioteca<br>do Campus</h1>
+      <p>Explore o acervo e confira os serviços da biblioteca.</p>
+      <a class="botao-destaque" href="#catalogo">
+        Explorar catálogo <span aria-hidden="true">↓</span>
+      </a>
+    </div>
+    <img src="biblioteca.webp" alt="" width="1774" height="887" fetchpriority="high">
+  </section>
+
+  <section id="catalogo" class="cartao catalogo" aria-labelledby="titulo-catalogo">
+    <div class="catalogo-topo">
+      <div>
+        <h2 id="titulo-catalogo">Catálogo</h2>
+        <p class="apoio" aria-live="polite">{{ livrosFiltrados().length }} títulos no acervo</p>
+      </div>
+      <div class="filtro">
+        <span>Categoria</span>
+        <app-menu-suspenso
+          [opcoes]="categorias"
+          [selecionada]="categoria()"
+          (selecionar)="filtrar($event)"
+        />
+      </div>
+    </div>
+
+    <ul class="livros">
+      @for (livro of livrosDaPagina(); track livro.titulo) {
+        <li class="livro">
+          <span class="capa" [class.literatura]="livro.categoria === 'Literatura'" aria-hidden="true"></span>
+          <div>
+            <p class="categoria-livro">{{ livro.categoria }}</p>
+            <h3>{{ livro.titulo }}</h3>
+            <p class="autor">{{ livro.autor }}</p>
+          </div>
+        </li>
+      }
+    </ul>
+
+    <app-paginacao
+      [paginaAtual]="paginaAtual()"
+      [totalPaginas]="totalPaginas()"
+      (mudarPagina)="paginaAtual.set($event)"
+    />
+  </section>
+
+  <div id="informacoes" class="grade">
+    <section class="cartao">
+      <h2>Perguntas frequentes</h2>
+      <app-acordeao [itens]="perguntas" />
+    </section>
+
+    <section class="cartao">
+      <h2>Sobre a biblioteca</h2>
+      <app-abas [itens]="abas" />
+    </section>
+
+    <section class="cartao">
+      <h2>Simulação de envio</h2>
+      <p class="apoio descricao">Acompanhe o progresso do envio de um comprovante.</p>
+      <app-barra-progresso [valor]="progresso()" />
+      <div class="botoes">
+        <button type="button" [disabled]="progresso() === 100" (click)="progresso.set(progresso() + 25)">
+          Avançar 25%
+        </button>
+        <button type="button" [disabled]="progresso() === 0" (click)="progresso.set(0)">Reiniciar</button>
+      </div>
+    </section>
+
+    <section class="cartao">
+      <h2>Reserva de livro</h2>
+      <p class="apoio descricao">Simule uma reserva para ver a confirmação na tela.</p>
+      <app-notificacao-toast mensagem="Reserva de exemplo registrada." />
+    </section>
+  </div>
+</main>

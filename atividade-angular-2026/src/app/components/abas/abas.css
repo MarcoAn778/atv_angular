@@ -1,0 +1,10 @@
+:host { display: block; }
+
+.painel {
+  margin-top: 12px;
+  padding: 13px;
+  border-radius: 8px;
+  background: #edf2e9;
+  color: var(--verde-escuro);
+  line-height: 1.5;
+}

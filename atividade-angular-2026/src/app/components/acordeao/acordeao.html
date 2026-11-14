@@ -1,0 +1,13 @@
+<div class="acordeao">
+  @for (item of itens(); track item.titulo; let indice = $index) {
+    <div>
+      <button type="button" [attr.aria-expanded]="aberto() === indice" (click)="alternar(indice)">
+        {{ item.titulo }}
+        <span aria-hidden="true">{{ aberto() === indice ? '−' : '+' }}</span>
+      </button>
+      <div class="resposta" [class.aberta]="aberto() === indice" [attr.aria-hidden]="aberto() !== indice">
+        <div><p>{{ item.texto }}</p></div>
+      </div>
+    </div>
+  }
+</div>

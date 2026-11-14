@@ -1,0 +1,18 @@
+<nav class="botoes" aria-label="Paginação do catálogo">
+  <button type="button" [disabled]="paginaAtual() <= 1" (click)="mudar(paginaAtual() - 1)">
+    Anterior
+  </button>
+  @for (pagina of paginas(); track pagina) {
+    <button
+      type="button"
+      [attr.aria-label]="'Página ' + pagina"
+      [attr.aria-current]="paginaAtual() === pagina ? 'page' : null"
+      (click)="mudar(pagina)"
+    >
+      {{ pagina }}
+    </button>
+  }
+  <button type="button" [disabled]="paginaAtual() >= totalPaginas()" (click)="mudar(paginaAtual() + 1)">
+    Próxima
+  </button>
+</nav>

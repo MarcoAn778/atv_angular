@@ -1,0 +1,7 @@
+:host { display: block; }
+
+nav { justify-content: flex-end; }
+
+@media (max-width: 640px) {
+  nav { justify-content: flex-start; }
+}

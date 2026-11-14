@@ -1,0 +1,10 @@
+<div class="botoes" role="group" aria-label="Abas sobre a biblioteca">
+  @for (item of itens(); track item.titulo; let indice = $index) {
+    <button type="button" [attr.aria-pressed]="ativa() === indice" (click)="ativa.set(indice)">
+      {{ item.titulo }}
+    </button>
+  }
+</div>
+@if (itens()[ativa()]; as item) {
+  <p class="painel">{{ item.texto }}</p>
+}

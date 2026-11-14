@@ -1,0 +1,16 @@
+<div class="menu">
+  <button #botao type="button" [attr.aria-expanded]="aberto()" (click)="aberto.set(!aberto())">
+    {{ selecionada() }} <span aria-hidden="true">▾</span>
+  </button>
+  @if (aberto()) {
+    <ul class="opcoes">
+      @for (opcao of opcoes(); track opcao) {
+        <li>
+          <button type="button" [attr.aria-pressed]="selecionada() === opcao" (click)="escolher(opcao)">
+            {{ opcao }}
+          </button>
+        </li>
+      }
+    </ul>
+  }
+</div>

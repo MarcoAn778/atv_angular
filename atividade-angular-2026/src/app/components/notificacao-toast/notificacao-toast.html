@@ -1,0 +1,7 @@
+<button class="botao-reserva" type="button" (click)="mostrar()">Simular reserva</button>
+<div class="toast" [class.visivel]="visivel()">
+  <span role="status">{{ visivel() ? mensagem() : '' }}</span>
+  @if (visivel()) {
+    <button type="button" (click)="fechar()">Fechar</button>
+  }
+</div>

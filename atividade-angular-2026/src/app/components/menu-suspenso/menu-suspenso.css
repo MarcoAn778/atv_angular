@@ -1,0 +1,19 @@
+:host { display: block; }
+
+.menu { position: relative; }
+.menu > button { min-width: 112px; display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+.opcoes {
+  position: absolute;
+  z-index: 1;
+  right: 0;
+  min-width: 100%;
+  margin: 6px 0 0;
+  padding: 5px;
+  border: 1px solid var(--borda);
+  border-radius: 10px;
+  background: var(--superficie);
+  box-shadow: 0 6px 20px #263c2426;
+  list-style: none;
+}
+.opcoes button { width: 100%; text-align: left; }
+.opcoes li + li { margin-top: 4px; }
