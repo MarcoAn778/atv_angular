@@ -1,7 +1,16 @@
-:host { display: block; }
+:host {
+  display: block;
+}
 
-.botao-reserva { color: #fff; background: var(--verde); border-color: var(--verde); }
-.botao-reserva:hover { background: var(--verde-escuro); }
+.botao-reserva {
+  color: #fff;
+  background: var(--verde);
+  border-color: var(--verde);
+}
+
+.botao-reserva:hover {
+  background: var(--verde-escuro);
+}
 
 .toast {
   position: fixed;
@@ -10,6 +19,7 @@
   bottom: 18px;
   max-width: calc(100% - 36px);
 }
+
 .toast.visivel {
   display: flex;
   align-items: center;

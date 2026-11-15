@@ -1,7 +1,19 @@
-:host { display: block; }
+:host {
+  display: block;
+}
 
-.menu { position: relative; }
-.menu > button { min-width: 112px; display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+.menu {
+  position: relative;
+}
+
+.menu>button {
+  min-width: 112px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
 .opcoes {
   position: absolute;
   z-index: 1;
@@ -15,5 +27,12 @@
   box-shadow: 0 6px 20px #263c2426;
   list-style: none;
 }
-.opcoes button { width: 100%; text-align: left; }
-.opcoes li + li { margin-top: 4px; }
+
+.opcoes button {
+  width: 100%;
+  text-align: left;
+}
+
+.opcoes li+li {
+  margin-top: 4px;
+}

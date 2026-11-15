@@ -2,7 +2,8 @@
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "version": 1,
   "cli": {
-    "packageManager": "npm"
+    "packageManager": "npm",
+    "analytics": "123946fb-98c2-486b-a646-5cbb6e67a9e2"
   },
   "newProjectRoot": "projects",
   "projects": {
@@ -81,7 +82,12 @@
         },
         "serve": {
           "builder": "@angular/build:dev-server",
-          "configurations": {
+                  "options": {
+          "host": "0.0.0.0",
+          "port": 4200,
+          "allowedHosts": ["psychic-trout-vxqr69rq7743pw97-4200.app.github.dev"]
+        },
+"configurations": {
             "production": {
               "buildTarget": "atividade-angular-2026:build:production"
             },
